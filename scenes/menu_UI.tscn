@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://h4uh7rf58khv"]
+
+[ext_resource type="FontFile" uid="uid://6vi7fwy85l38" path="res://resources/Silver.ttf" id="1_45vbb"]
+[ext_resource type="Script" uid="uid://bgdkmifa3k7ra" path="res://scripts/exit_button.gd" id="1_con2f"]
+[ext_resource type="Script" uid="uid://b54tx4sd8r722" path="res://scripts/start.gd" id="1_mhnvy"]
+[ext_resource type="Script" uid="uid://bilyeje002m4e" path="res://scripts/language_button.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://dyw2wbrxuxgat" path="res://resources/sprites/settings_icon.png" id="2_con2f"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+layout_direction = 2
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = -148.0
+offset_right = 212.0
+offset_bottom = 91.0
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_45vbb")
+theme_override_font_sizes/font_size = 40
+text = "START_BUTTON"
+script = ExtResource("1_mhnvy")
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_45vbb")
+theme_override_font_sizes/font_size = 40
+text = "CREDITS_BUTTON"
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_45vbb")
+theme_override_font_sizes/font_size = 40
+text = "QUIT_BUTTON"
+script = ExtResource("1_con2f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_45vbb")
+theme_override_font_sizes/font_size = 40
+text = "LANG"
+script = ExtResource("1_vjb58")
+
+[node name="TextureButton" type="TextureButton" parent="Panel/VBoxContainer/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture_normal = ExtResource("2_con2f")
+stretch_mode = 0
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="Panel/VBoxContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button3" to="Panel/VBoxContainer/Button3" method="_on_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/Button" to="Panel/VBoxContainer/HBoxContainer/Button" method="_on_button_pressed"]

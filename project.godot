@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="PGD game jam 17"
-run/main_scene="uid://dttywc3oga6s0"
+run/main_scene="uid://dgl2d6gnitws4"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Setup="*res://scripts/setup.gd"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://resources/localization/localization.en.translation", "res://resources/localization/localization.ru.translation")
 
 [rendering]
 
